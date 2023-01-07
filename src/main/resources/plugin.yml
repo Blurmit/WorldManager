@@ -1,0 +1,11 @@
+name: WorldManager
+version: '${project.version}'
+main: me.blurmit.worldmanager.WorldManagerPlugin
+api-version: 1.16
+authors: [ Blurmit ]
+description: A world management plugin for Spigot servers.
+website: https://blurmit.ml
+
+commands:
+  worlds:
+    aliases: [ "world" ]
