@@ -4,6 +4,7 @@ import me.blurmit.worldmanager.WorldManagerPlugin;
 import me.blurmit.worldmanager.gui.GuiButton;
 import me.blurmit.worldmanager.gui.GuiMenu;
 import me.blurmit.worldmanager.gui.GuiType;
+import me.blurmit.worldmanager.world.EmptyChunkGenerator;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.WorldCreator;
@@ -19,18 +20,22 @@ public class GuiWorldTypeSelector extends GuiMenu {
         this.plugin = plugin;
         this.creator = creator;
 
+        addButton(new GuiButton(ChatColor.RED + "Void")
+                .setMaterial(Material.PODZOL)
+                .setLore(ChatColor.GRAY + "A completely empty Minecraft world")
+                .setSlot(1));
         addButton(new GuiButton(ChatColor.GREEN + "Normal")
                 .setMaterial(Material.PODZOL)
                 .setLore(ChatColor.GRAY + "A normally generated Minecraft world")
-                .setSlot(2));
+                .setSlot(3));
         addButton(new GuiButton(ChatColor.GOLD + "Flat")
                 .setMaterial(Material.DIRT)
                 .setLore(ChatColor.GRAY + "A flat Minecraft world")
-                .setSlot(4));
+                .setSlot(5));
         addButton(new GuiButton(ChatColor.YELLOW + "Amplified")
                 .setMaterial(Material.MYCELIUM)
                 .setLore(ChatColor.GRAY + "A Minecraft world with amplified terrain")
-                .setSlot(6));
+                .setSlot(7));
     }
 
     @Override
@@ -46,15 +51,19 @@ public class GuiWorldTypeSelector extends GuiMenu {
     @Override
     public void callButton(InventoryClickEvent event) {
         switch (event.getRawSlot()) {
-            case 2: {
+            case 1: {
+                creator.generator(new EmptyChunkGenerator());
+                break;
+            }
+            case 3: {
                 creator.type(WorldType.NORMAL);
                 break;
             }
-            case 4: {
+            case 5: {
                 creator.type(WorldType.FLAT);
                 break;
             }
-            case 6: {
+            case 7: {
                 creator.type(WorldType.AMPLIFIED);
             }
         }

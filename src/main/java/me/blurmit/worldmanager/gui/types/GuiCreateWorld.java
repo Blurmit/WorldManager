@@ -4,7 +4,9 @@ import me.blurmit.worldmanager.WorldManagerPlugin;
 import me.blurmit.worldmanager.gui.GuiButton;
 import me.blurmit.worldmanager.gui.GuiMenu;
 import me.blurmit.worldmanager.gui.GuiType;
+import me.blurmit.worldmanager.world.EmptyChunkGenerator;
 import org.bukkit.*;
+import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.HandlerList;
@@ -14,6 +16,7 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.UUID;
 
 public class GuiCreateWorld extends GuiMenu implements Listener {
@@ -122,8 +125,22 @@ public class GuiCreateWorld extends GuiMenu implements Listener {
                             20 * 300,
                             0
                     );
-                    player.teleport(plugin.getWorldManager().createWorld(creator).getSpawnLocation());
+
+                    World world = plugin.getWorldManager().createWorld(creator);
                     player.sendTitle("", "", 0, 0, 0);
+
+                    if (creator.generator() instanceof EmptyChunkGenerator) {
+                        Chunk chunk = world.getChunkAt(0, 0);
+                        Block block = chunk.getBlock(0, 64, 0);
+                        block.setType(Material.STONE);
+
+                        Location blockLocation = block.getLocation();
+                        blockLocation.setY(blockLocation.getY() + 1);
+                        player.teleport(blockLocation);
+                        return;
+                    }
+
+                    player.teleport(world.getSpawnLocation());
                 }
                 break;
             }

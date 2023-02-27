@@ -2,7 +2,7 @@ package me.blurmit.worldmanager;
 
 import me.blurmit.worldmanager.commands.WorldCommand;
 import me.blurmit.worldmanager.gui.GuiManager;
-import me.blurmit.worldmanager.worlds.WorldManager;
+import me.blurmit.worldmanager.world.WorldManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class WorldManagerPlugin extends JavaPlugin {

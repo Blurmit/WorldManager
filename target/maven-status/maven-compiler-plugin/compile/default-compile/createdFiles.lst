@@ -4,9 +4,9 @@ me\blurmit\worldmanager\gui\types\GuiEditWorld.class
 me\blurmit\worldmanager\gui\types\GuiWorldTypeSelector.class
 me\blurmit\worldmanager\commands\WorldCommand.class
 me\blurmit\worldmanager\gui\types\GuiGameruleSelector.class
-me\blurmit\worldmanager\worlds\WorldManager.class
 me\blurmit\worldmanager\gui\types\GuiDifficultySelector.class
 me\blurmit\worldmanager\gui\GuiType$2.class
+me\blurmit\worldmanager\world\EmptyChunkGenerator.class
 me\blurmit\worldmanager\gui\GuiManager.class
 me\blurmit\worldmanager\gui\types\GuiMainMenu.class
 me\blurmit\worldmanager\gui\GuiType.class
@@ -14,5 +14,6 @@ me\blurmit\worldmanager\WorldManagerPlugin.class
 me\blurmit\worldmanager\gui\GuiMenu.class
 me\blurmit\worldmanager\gui\GuiType$1.class
 me\blurmit\worldmanager\gui\types\GuiWorldEnvironmentSelector.class
+me\blurmit\worldmanager\world\WorldManager.class
 me\blurmit\worldmanager\gui\types\GuiWorldList.class
 me\blurmit\worldmanager\gui\GuiButton.class

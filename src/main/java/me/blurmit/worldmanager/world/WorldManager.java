@@ -1,4 +1,4 @@
-package me.blurmit.worldmanager.worlds;
+package me.blurmit.worldmanager.world;
 
 import me.blurmit.worldmanager.WorldManagerPlugin;
 import org.apache.commons.io.FileUtils;
