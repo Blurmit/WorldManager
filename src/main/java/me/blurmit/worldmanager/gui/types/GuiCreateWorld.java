@@ -116,7 +116,7 @@ public class GuiCreateWorld extends GuiMenu implements Listener {
                 break;
             }
             case 48: {
-                if (plugin.getWorldManager().doesWorldExist(creator.name())) {
+                if (!plugin.getWorldManager().doesWorldExist(creator.name())) {
                     player.closeInventory();
                     player.sendTitle(
                             ChatColor.AQUA + "Creating world...",
